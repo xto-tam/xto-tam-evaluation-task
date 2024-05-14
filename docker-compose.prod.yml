@@ -1,0 +1,34 @@
+version: '3.7'
+services:
+  evaulation-client-production:
+    container_name: evaluation-client
+    working_dir: /app
+    build:
+      context: evaluation-client
+      dockerfile: ../evaluation-client/Dockerfile.prod
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 3001:3001
+
+  evaulation-admin-production:
+    container_name: evaluation-admin
+    working_dir: /app
+    build:
+      context: evaluation-admin
+      dockerfile: ../evaluation-admin/Dockerfile.prod
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 3002:3002
+
+  evaulation-server-production:
+    container_name: evaluation-server
+    working_dir: /app
+    build:
+      context: evaluation-server
+      dockerfile: ../evaluation-server/Dockerfile.prod
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 3000:3000
